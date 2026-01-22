@@ -1,0 +1,672 @@
+/* ===== CSS Variables ===== */
+:root {
+    --bg-primary: #FFFDF5;
+    --text-primary: #1A1A1A;
+    --accent-orange: #FF6B35;
+    --accent-cyan: #00D4E5;
+    --accent-blue: #3B82F6;
+    --card-cyan: #00CED1;
+    --card-orange: #FF6B35;
+    --search-bg: #1A1A1A;
+    --border-dark: #1A1A1A;
+    --font-main: 'Outfit', sans-serif;
+    --font-mono: 'Courier Prime', monospace;
+}
+
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* ===== Top Badge ===== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-orange);
+    color: white;
+    padding: 10px 24px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    border: 3px solid #000;
+    box-shadow: 6px 6px 0 #000;
+    transition: all 0.2s ease;
+}
+
+.badge:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0 #000;
+}
+
+.skull {
+    font-size: 18px;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* ===== Main Title ===== */
+.main-title {
+    font-size: clamp(48px, 12vw, 110px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* ===== Subtitle ===== */
+.subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: var(--accent-orange);
+    font-weight: 700;
+}
+
+/* ===== CTA Link ===== */
+.cta-link {
+    display: inline-block;
+    color: var(--accent-orange);
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.cta-link:hover {
+    text-decoration: underline;
+    transform: translateY(-2px);
+}
+
+/* ===== Quote ===== */
+.quote {
+    font-family: var(--font-mono);
+    font-style: italic;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+/* ===== Cards Container ===== */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+    padding: 20px;
+}
+
+.card-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.card-wrapper.left {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-wrapper.right {
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* ===== Cards ===== */
+.card {
+    padding: 25px;
+    border: 3px solid #000;
+    box-shadow: 12px 12px 0 #000;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+
+/* Card Hover */
+.card:hover {
+    transform: translate(6px, 6px);
+    box-shadow: 6px 6px 0 #000;
+    z-index: 10;
+}
+
+
+
+.card h3 {
+    font-size: 22px;
+    font-weight: 900;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: var(--font-main);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.year-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #888;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+    margin: 0;
+}
+
+.card-tags {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.tag-bage {
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 900;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    border: 2px solid #000;
+}
+
+.tag-bage.burned {
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+
+.tag-bage.category {
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.new-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--accent-orange);
+    color: #000;
+    border: 3px solid #000;
+    padding: 4px 8px;
+    font-weight: 900;
+    font-size: 11px;
+    z-index: 5;
+}
+
+.hover-separator {
+    border-top: 1px dashed #ddd;
+    margin: 15px 0 5px;
+    position: relative;
+    text-align: center;
+}
+
+.hover-separator::after {
+    content: "HOVER FOR DETAILS";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 0 10px;
+    font-size: 10px;
+    color: #ccc;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9px;
+    font-weight: 900;
+    color: #888;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-visual {
+    display: flex;
+    gap: 2px;
+}
+
+.mini-bar {
+    width: 6px;
+    height: 10px;
+    background: #eee;
+    border: 1px solid #ddd;
+}
+
+.mini-bar.filled {
+    background: var(--accent-orange);
+    border-color: #000;
+}
+
+.mini-bar.filled.blue {
+    background: #3b82f6;
+    border-color: #000;
+}
+
+.mini-bar.filled.green {
+    background: #22c55e;
+    border-color: #000;
+}
+
+
+/* ===== Annotations ===== */
+.annotation {
+    position: absolute;
+    z-index: 10;
+}
+
+.annotation span {
+    background: #000;
+    color: #fff;
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+    /* Little white border inside maybe? Or just black box */
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+    transform: rotate(-5deg);
+    display: inline-block;
+}
+
+.annotation .arrow {
+    width: 60px;
+    height: 40px;
+    position: absolute;
+}
+
+.left-annotation {
+    top: -45px;
+    left: -40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center arrow under label */
+}
+
+.left-annotation span {
+    transform: rotate(-5deg);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.left-annotation .arrow {
+    position: relative;
+    top: -5px;
+    left: 20px;
+    transform: rotate(5deg);
+    z-index: -1;
+    /* Behind the label but pointing to card */
+}
+
+.right-annotation {
+    top: -45px;
+    right: -40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-annotation span {
+    background: #000;
+    color: #fff;
+    transform: rotate(5deg);
+}
+
+.right-annotation .arrow {
+    position: relative;
+    top: -5px;
+    right: 20px;
+    transform: rotate(-10deg) scaleX(-1);
+}
+
+/* ===== Search Section ===== */
+.search-section {
+    background: transparent;
+    /* Changed from dark to transparent to show shadows */
+    padding: 30px;
+    margin: 0 -20px;
+    border-top: 4px solid #000;
+    /* Optional separator */
+}
+
+.data-banner {
+    background: var(--accent-orange);
+    border: 4px solid #000;
+    box-shadow: 12px 12px 0 #000;
+    padding: 30px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+    position: relative;
+}
+
+.data-banner h2 {
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+    flex: 1;
+}
+
+.data-banner .skull-icon {
+    font-size: 48px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 4px solid #000;
+    box-shadow: 8px 8px 0 #000;
+    padding: 15px 20px;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.2s ease;
+}
+
+
+.search-bar:focus-within {
+    transform: translate(4px, 4px);
+    box-shadow: 4px 4px 0 #000;
+}
+
+.search-icon {
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: var(--font-mono);
+    font-size: 16px;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #000;
+    font-weight: 700;
+}
+
+.search-bar input::placeholder {
+    color: #999;
+}
+
+/* ===== Category Filters ===== */
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: 3px solid #000;
+    background: white;
+    color: #000;
+    /* Dark text on white btn */
+    box-shadow: 5px 5px 0 #000;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.filter-btn:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 #000;
+    background: #f0f0f0;
+}
+
+.filter-btn.active {
+    background: #000;
+    color: white;
+    box-shadow: 5px 5px 0 var(--accent-orange);
+    /* Fun pop for active */
+    transform: translate(-2px, -2px);
+}
+
+.filter-btn.active:hover {
+    transform: translate(0, 0);
+    box-shadow: 2px 2px 0 var(--accent-orange);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot.green {
+    background: #22C55E;
+}
+
+.dot.blue {
+    background: #3B82F6;
+}
+
+.dot.purple {
+    background: #8B5CF6;
+}
+
+.dot.yellow {
+    background: #EAB308;
+}
+
+.dot.orange {
+    background: #F97316;
+}
+
+.dot.red {
+    background: #EF4444;
+}
+
+.dot.pink {
+    background: #EC4899;
+}
+
+.dot.teal {
+    background: #14B8A6;
+}
+
+/* ===== Footer ===== */
+.footer {
+    padding: 40px 20px;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: #888;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 15px;
+    }
+
+    .main-title {
+        font-size: clamp(36px, 15vw, 70px);
+        margin-bottom: 20px;
+        letter-spacing: -2px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .cards-container {
+        gap: 60px;
+        padding: 10px;
+    }
+
+    .card {
+        padding: 20px 30px;
+        max-width: 100%;
+        width: calc(100% - 20px);
+        /* Leave room for shadow */
+    }
+
+    .card-wrapper.left,
+    .card-wrapper.right {
+        align-items: center;
+        width: 100%;
+    }
+
+    .left-annotation,
+    .right-annotation {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin-bottom: 15px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .left-annotation span,
+    .right-annotation span {
+        transform: rotate(0deg);
+        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .left-annotation .arrow,
+    .right-annotation .arrow {
+        display: block;
+        /* Restore arrows as requested */
+        width: 40px;
+        height: 25px;
+        margin-top: -5px;
+    }
+
+    .search-bar {
+        margin-bottom: 30px;
+        padding: 12px 15px;
+    }
+
+    .category-filters {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        padding: 10px 15px;
+        font-size: 11px;
+        flex: 1 1 calc(50% - 10px);
+        /* Two buttons per row */
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 40px;
+    }
+
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .filter-btn {
+        flex: 1 1 100%;
+        /* Full width buttons on tiny screens */
+    }
+}
+
+/* ===== Fun Hover Effects ===== */
+.main-title {
+    transition: transform 0.3s ease;
+}
+
+.main-title:hover {
+    transform: scale(1.02);
+}
+
+/* ===== Subtle Background Pattern ===== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 212, 229, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
